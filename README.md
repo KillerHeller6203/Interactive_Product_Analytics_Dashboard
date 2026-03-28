@@ -1,10 +1,10 @@
-# 📊 Interactive Product Analytics Dashboard
+# Interactive Product Analytics Dashboard
 
 A full-stack analytics dashboard for tracking and visualizing user interactions with product features. Built with **React + Vite** (frontend) and **FastAPI** (backend), featuring JWT authentication, real-time tracking, interactive charts, and cookie-based filter persistence.
 
 ---
 
-## 🚀 Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -15,7 +15,7 @@ A full-stack analytics dashboard for tracking and visualizing user interactions 
 
 ---
 
-## ✨ Features
+## Features
 
 - **JWT Authentication** — Secure register/login with token-based auth; expired tokens handled gracefully
 - **Interactive Bar Chart** — Click any bar to drill down into that feature's time trend
@@ -28,7 +28,7 @@ A full-stack analytics dashboard for tracking and visualizing user interactions 
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ├── backend/
@@ -69,7 +69,7 @@ A full-stack analytics dashboard for tracking and visualizing user interactions 
 
 ---
 
-## 🛠️ Setup Instructions
+## Setup Instructions
 
 ### Prerequisites
 
@@ -125,7 +125,7 @@ The frontend will be available at `http://localhost:5173` and the backend API at
 
 ---
 
-## 🔑 Environment Variables
+## Environment Variables
 
 ### Backend (`backend/.env`)
 
@@ -144,7 +144,7 @@ The frontend will be available at `http://localhost:5173` and the backend API at
 
 ---
 
-## 🌱 How to Seed Data
+## How to Seed Data
 
 The seed script creates **10 users** with diverse demographics and **80–100 feature click records** spread across 30 days and 8 feature types.
 
@@ -174,7 +174,7 @@ To re-seed, delete `analytics.db` and run `python seed.py` again.
 
 ---
 
-## 📡 API Endpoints
+## API Endpoints
 
 ### Authentication
 
@@ -187,13 +187,13 @@ To re-seed, delete `analytics.db` and run `python seed.py` again.
 
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
-| `GET` | `/analytics` | 🔒 JWT | Get aggregated analytics. Query params: `start_date`, `end_date`, `age_group`, `gender`, `feature_name`. Returns `{feature_counts, time_series}`. |
+| `GET` | `/analytics` | JWT | Get aggregated analytics. Query params: `start_date`, `end_date`, `age_group`, `gender`, `feature_name`. Returns `{feature_counts, time_series}`. |
 
 ### Tracking
 
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
-| `POST` | `/track` | 🔒 JWT | Log user interaction. Body: `{feature_name}`. Returns `{id, user_id, feature_name, timestamp}`. |
+| `POST` | `/track` | JWT | Log user interaction. Body: `{feature_name}`. Returns `{id, user_id, feature_name, timestamp}`. |
 
 ### System
 
@@ -209,7 +209,7 @@ To re-seed, delete `analytics.db` and run `python seed.py` again.
 
 ---
 
-## 🏗️ Architecture Decisions
+## Architecture Decisions
 
 ### Why SQLite?
 SQLite is zero-configuration and sufficient for a demo/assignment. The `DATABASE_URL` env var supports swapping to PostgreSQL for production without code changes.
@@ -228,7 +228,7 @@ Every user interaction fires `POST /track` with the feature name. The backend re
 
 ---
 
-## 🚢 Deployment
+## Deployment
 
 ### Backend → Render
 
@@ -258,7 +258,7 @@ Every user interaction fires `POST /track` with the feature name. The backend re
 
 ---
 
-## 📐 Scalability: Handling 1 Million Write Events Per Minute
+## Scalability: Handling 1 Million Write Events Per Minute
 
 > **Question**: *"If this dashboard had to handle 1 million write events per minute, how would you redesign the backend architecture?"*
 
@@ -322,6 +322,6 @@ Clients → API Gateway (Rate Limit + Auth)
 
 ---
 
-## 📄 License
+## License
 
 This project is built as a full-stack challenge submission.
